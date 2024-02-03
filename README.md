@@ -1,7 +1,6 @@
 # Project -title
 Talent Pool Database System
 
-explain your project here
 Talent Pool Database System is a database system for ATA IT Company.
 The goal of the Talent Pool Database project is to help HR Departments of ATA IT manage applicant and employee data more effectively. 
 The application will use to build on Spring Boot on Backend and React on frontend.
