@@ -17,3 +17,8 @@ You need to create skeleton of your project's development. It does not necessary
 - Create folder structure and some source code to prepare for development
 - Decide what features to roll out and who is responsible for it.​ Create branches for each feature. Explain each feature in Readme file in their own branch​ 
 - Create Docker file for your deployment of your application 
+
+## Add Candidates Feature.
+Add candidates feature is responsible by Saw Tar So Gay Htoo Htoo (6431503130)
+The users is able to upload candidates in system. User be able upload candidate  
+information such as resume either manually or via link.
