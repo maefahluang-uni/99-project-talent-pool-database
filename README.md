@@ -17,3 +17,8 @@ You need to create skeleton of your project's development. It does not necessary
 - Create folder structure and some source code to prepare for development
 - Decide what features to roll out and who is responsible for it.​ Create branches for each feature. Explain each feature in Readme file in their own branch​ 
 - Create Docker file for your deployment of your application 
+
+Log In Function 
+Responsible by Tar So Gay Htoo Htoo 6431503126
+It is a function for user to log to thier account either by Email or Username. 
+If users forget password, they will be able change the password by simply clicking in forgot password. 
