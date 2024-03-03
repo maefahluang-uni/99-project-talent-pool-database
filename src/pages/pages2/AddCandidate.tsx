@@ -45,7 +45,7 @@ const App: React.FC = () => {
 
     try {
       const response: AxiosResponse = await axios.post(
-        "http://localhost:8080/users",
+        "http://172.25.201.19:8080/users",
         formData
       );
       console.log("File uploaded:", response.data);
