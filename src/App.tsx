@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import HomePage from "./pages/HomePage";
 import AddCandidate from "./pages/pages2/AddCandidate";
 import { Route, Router, Switch } from "wouter";
+import TestingAddCandidate from "./pages/pages2/TestingAddCandidate";
 
 const App: React.FC = () => {
     return (
@@ -17,7 +18,10 @@ const App: React.FC = () => {
                 <Route path="/signup" component={SignUp} />
                 <Route path="/forgotPassword" component={ForgotPassword} />
                 <Route path="/homepage" component={HomePage} />
-                <Route path="/addCandidate" component={AddCandidate} />
+                {/* <div className="min-h-screen bg-gray-100 flex items-center justify-center"> */}
+                    <Route path="/testingAddCandidate" component={TestingAddCandidate} />
+                    <Route path="/addCandidate" component={AddCandidate} />
+                {/* </div> */}
             </Switch>
         </Router>
     );
@@ -25,8 +29,8 @@ const App: React.FC = () => {
 
 export default App;
 
-{/* <div className="absolute inset-y-0 right-80 flex items-center pr-3 pointer-events-none"></div> */}
-{/* <div className="p-6 max-w-xs bg-white rounded-xl shadow-md"> */}
+{/* <div className="absolute inset-y-0 right-80 flex items-center pr-3 pointer-events-none"></div> */ }
+{/* <div className="p-6 max-w-xs bg-white rounded-xl shadow-md"> */ }
 {/* <table className="w-full border-collapse border">
                     <thead>
                         <tr className="bg-gray-200">

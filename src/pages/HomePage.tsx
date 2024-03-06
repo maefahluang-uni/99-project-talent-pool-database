@@ -1,29 +1,52 @@
 // src/components/TalentPoolDatabase.tsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
+import axios from 'axios';
+
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    year: 0;
+}
 
 const HomePage: React.FC = () => {
+    const [datas, setData] = useState<User[]>([]);
     // Mock data for candidate information (replace with actual data)
-    const candidates = [
-        {
-            id: 1,
-            name: 'Mr. Alan',
-            position: 'Senior Developer',
-            addedBy: 'Mr. Tin Win',
-            dateAdded: 'Today',
-            // Add other relevant fields if needed
-        },
-        {
-            id: 2,
-            name: 'Mr. Ala',
-            position: 'Developer',
-            addedBy: 'Mr. Lee',
-            dateAdded: 'Yesterday',
-            // Add other relevant fields if needed
-        },
-        // Add more candidate entries as necessary
-    ];
+    // const candidates = [
+    //     {
+    //         id: 1,
+    //         // name: 'Mr. Alan',
+    //         name: 'Alan',
+    //         position: 'Senior Developer',
+    //         // addedBy: 'Mr. Tin Win',
+    //         email: 'luna@hotmail.com',
+    //         dateAdded: '10-10-2023',
+    //         // Add other relevant fields if needed
+    //     },
+    //     {
+    //         id: 2,
+    //         // name: 'Mr. Ala',
+    //         name: 'Ala',
+    //         position: 'Developer',
+    //         // addedBy: 'Mr. Lee',
+    //         email: "alisa@gmail.com",
+    //         dateAdded: '8-12-2022',
+    //         // Add other relevant fields if needed
+    //     },
+    //     // Add more candidate entries as necessary
+    // ];
+
+    useEffect(() => {
+        axios.get<User[]>('http://localhost:8080/users')
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
 
     return (
         // <div className="bg-gray-100 min-h-screen">
@@ -66,12 +89,15 @@ const HomePage: React.FC = () => {
                             </div>
                             <hr className="my-2 w-full border-gray-300" />
                             <a href='/addCandidate' className='cursor-pointer flex items-center'>
+                                {/* <a href='/addCandidate' className='cursor-pointer flex items-center'> */}
                                 <img src="../src/assets/AddCandidate.png" alt="AddCandidate.png" className='h-8' />
                                 <h4 className='ml-2'>Add Candidate</h4>
                             </a>
                             <div className='cursor-pointer flex items-center mt-3'>
+                                {/* <a href="/addCandidate"> */}
                                 <img src="../src/assets/UploadCV.png" alt="AddCandidate.png" className='h-8' />
                                 <h4 className='ml-2 '>Upload CV</h4>
+                                {/* </a> */}
                             </div>
                             <div className='cursor-pointer flex items-center mt-3'>
                                 <img src="../src/assets/ImportRVL.png" alt="AddCandidate.png" className='h-8' />
@@ -118,7 +144,7 @@ const HomePage: React.FC = () => {
 
                         {/* Found: 1 candidates */}
                         <div className='mb-4 border border-gray-400 w-52 rounded p-2 pr-10'>
-                            <h1 className='ml-2'>Found: {candidates.length} candidates</h1>
+                            <h1 className='ml-2'>Found: {datas.length} candidates</h1>
                         </div>
                         <table className='p-6 w-full bg-white rounded-xl shadow-md'>
                             <thead>
@@ -128,22 +154,24 @@ const HomePage: React.FC = () => {
                                     </th>
                                     <th className='p-2 font-normal border-b border-gray-300'>Profile</th>
                                     <th className='p-2 font-normal border-b border-gray-300'>Candidate</th>
-                                    <th className='p-2 font-normal border-b border-gray-300'>Added by</th>
+                                    <th className='p-2 font-normal border-b border-gray-300'>Email</th>
+                                    {/* <th className='p-2 font-normal border-b border-gray-300'>Added by</th> */}
                                     <th className='p-2 font-normal border-b border-gray-300'>Date Added</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {candidates.map((candidate) => (
-                                    <tr key={candidate.id}>
+                                {datas.map((data) => (
+                                    <tr key={data.id}>
                                         <th className="p-2">
                                             <input type="checkbox" className='cursor-pointer' />
                                         </th>
                                         <td className='p-2 flex items-center justify-center'>
                                             <img src="../src/assets/ProfileImage.png" alt="ProfileImage.png" className='h-8' />
                                         </td>
-                                        <td className='p-2 text-center'>{candidate.name}</td>
-                                        <td className='p-2 text-center'>{candidate.addedBy}</td>
-                                        <td className='p-2 text-center'>{candidate.dateAdded}</td>
+                                        <td className='p-2 text-center'>{data.name}</td>
+                                        <td className='p-2 text-center'>{data.email}</td>
+                                        {/* <td className='p-2 text-center'>{data.addedBy}</td> */}
+                                        <td className='p-2 text-center'>{data.year}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -152,11 +180,11 @@ const HomePage: React.FC = () => {
                 </div>
                 <br />
 
-
+                {/* Testing Code */}
                 <br />
 
                 {/* New Candidate Section */}
-                <section className="mb-6">
+                {/* <section className="mb-6">
                     <h2 className="text-lg font-semibold">New Candidate</h2>
                     <div className="flex space-x-4">
                         <button className="bg-blue-500 text-white p-2 rounded">
@@ -169,10 +197,10 @@ const HomePage: React.FC = () => {
                             Import resume via link
                         </button>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Report Function Section */}
-                <section className="mb-6">
+                {/* <section className="mb-6">
                     <h2 className="text-lg font-semibold">Report Function</h2>
                     <div className="flex space-x-4">
                         <button className="bg-blue-500 text-white p-2 rounded">
@@ -185,10 +213,10 @@ const HomePage: React.FC = () => {
                             Generate Chart
                         </button>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Candidate Table */}
-                <table className="w-full border-collapse border">
+                {/* <table className="w-full border-collapse border">
                     <thead>
                         <tr className="bg-gray-200">
                             <th className="p-2">Profile</th>
@@ -213,7 +241,7 @@ const HomePage: React.FC = () => {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table> */}
             </main>
         </div>
     );
