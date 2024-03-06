@@ -208,7 +208,7 @@ const App: React.FC = () => {
                 type="file"
                 placeholder="Add File/Attachments"
                 className="border border-gray-300 rounded px-3 py-2 w-full"
-              />
+              /> //ok 
             </div>
           </div>
         </div>
