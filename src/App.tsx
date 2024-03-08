@@ -7,7 +7,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import HomePage from "./pages/HomePage";
 import AddCandidate from "./pages/pages2/AddCandidate";
 import { Route, Router, Switch } from "wouter";
-import TestingAddCandidate from "./pages/pages2/TestingAddCandidate";
+
 
 const App: React.FC = () => {
     return (
@@ -19,7 +19,7 @@ const App: React.FC = () => {
                 <Route path="/forgotPassword" component={ForgotPassword} />
                 <Route path="/homepage" component={HomePage} />
                 {/* <div className="min-h-screen bg-gray-100 flex items-center justify-center"> */}
-                    <Route path="/testingAddCandidate" component={TestingAddCandidate} />
+                  
                     <Route path="/addCandidate" component={AddCandidate} />
                 {/* </div> */}
             </Switch>

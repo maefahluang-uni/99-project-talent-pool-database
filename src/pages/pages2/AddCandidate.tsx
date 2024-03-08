@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { useState, ChangeEvent } from "react";
+import axios from "axios";
+
 // import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { navigate } from "wouter/use-browser-location";
@@ -133,6 +134,9 @@ export function AddCandidate() {
     <div>
       <header>
         <div className="flex justify-between items-center">
+          
+           
+          
           <div className="flex items-center">
             <img
               src="../src/assets/ATALogo.png"
@@ -155,7 +159,9 @@ export function AddCandidate() {
               <i className="fas fa-bars text-gray-800 text-2xl"></i>
             </a>
           </div>
-        </div>
+          
+          </div>
+        
       </header>
 
       <div className="mx-xl w-1000 px-4 py-24 sm:px-7 sm:py-25 lg:px-8">
@@ -171,7 +177,10 @@ export function AddCandidate() {
             <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" id="image-input" onChange={handleImageChange} />
           </div>
           <form className=" w-full max-w-200 mt-8 py-10 ">
-            <div className="flex justify-between w-4/5 mx-auto">
+            
+            <div className="flex justify-between w-4/5 mx-auto shadow-md">
+              
+
 
 
               <div className="w-full md:w-1/3 px-3 mb-3 md:mb-0 ">
@@ -230,8 +239,10 @@ export function AddCandidate() {
                   placeholderText="Select Birth Date"
                 /> */}
               </div>
+           
             </div>
-            <div className="flex justify-between w-4/5 mx-auto">
+          
+            <div className="flex justify-between w-4/5 mx-auto shadow-md">
 
               <div className="w-full md:w-1/2 px-3 py-3 mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-position">
@@ -246,7 +257,7 @@ export function AddCandidate() {
                 <input className="appearance-none block w-full text-center bg-white-200 text-black-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-salary" type="number" placeholder="Salary" />
               </div>
             </div>
-            <div className="flex justify-between w-4/5 mx-auto">
+            <div className="flex justify-between w-4/5 mx-auto shadow-md">
               <div className="w-full md:w-1/2 px-3 py-3 mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-employmentType">
                   Employment Type
@@ -283,14 +294,14 @@ export function AddCandidate() {
             </div>
 
 
-            <div className="flex justify-between w-4/5 mx-auto">
-              <div className="w-full md:w-1/2 px-3 py-6 mb-6 md:mb-0">
+            <div className="flex justify-between w-4/5 mx-auto shadow-md">
+              <div className="w-full md:w-1/2 px-3 py-3 mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-eduLevel">
                   Education Level
                 </label>
                 <input className="appearance-none block w-full bg-white-200 text-black-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-eduLevel" type="text" placeholder="Education Level" />
               </div>
-              <div className="w-full md:w-1/2 px-3 py-6  mb-6 md:mb-0">
+              <div className="w-full md:w-1/2 px-3 py-3  mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-skill">
                   Skill
                 </label>
@@ -298,14 +309,14 @@ export function AddCandidate() {
               </div>
 
             </div>
-            <div className="flex justify-between w-4/5 mx-auto">
-              <div className="w-full md:w-1/2 px-3 py-1 mb-6 md:mb-0">
+            <div className="flex justify-between py-3 w-4/5 mx-auto shadow-md">
+              <div className="w-full md:w-1/2 px-3 py-4 mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-phNumber" >
                   Phone Number
                 </label>
                 <input id="phone" name="phone" type="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder='Phone Number'></input>
               </div>
-              <div className="w-full md:w-1/2 px-3 py-1  mb-6 md:mb-0">
+              <div className="w-full md:w-1/2 px-3 py-4  mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-email">
                   Email
                 </label>
@@ -322,32 +333,31 @@ export function AddCandidate() {
               </div>
 
             </div>
-            <div className="flex justify-between w-4/5 mx-auto">
+            <div className="flex justify-between w-4/5 mx-auto shadow-md">
 
-              <div className='w-full md:w-1/1 px-3 py-1 mb-6 md:mb-0'>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white " htmlFor="Uploadfiles" >Uploadfiles</label>
-                <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" type="file" multiple />
+            <div className='w-full md:w-1/1 px-3 py-1 mb-6 md:mb-0'>
+  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="Uploadfiles">Upload Files</label>
+  <input className="block w-full text-sm text-gray-900 dark:text-gray-400 border border-gray-200 dark:border-gray-300 rounded-lg cursor-pointer bg-white dark:bg-white focus:outline-none dark:placeholder-gray-400" id="multiple_files" type="file" multiple />
+</div>
+</div>
+<div className="flex justify-between w-4/5 mx-auto shadow-md">
+<div className='w-full md:w-1/1 px-3 py-1 mb-6 md:mb-0'>
+<div className="rounded-lg bg-white dark:bg-white-700 dark:border-transparent text-black dark:text-gray-300">
+  <label htmlFor="comment" className="sr-only">Your comment</label>
+  <textarea
+    id="comment"
+    className="px-0 w-full text-sm border-0 focus:ring-0 focus:outline-none dark:text-black dark:placeholder-gray-400 dark:bg-white"
+    placeholder="  Write a comment..."
+    required
+  ></textarea>
+</div>
               </div>
-
-              <div className='w-full md:w-1/2 px-3 py-1 mb-6 md:mb-0'>
-                <div className=" border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-                  <label htmlFor="comment" className="sr-only">Your comment</label>
-                  <textarea
-                    id="comment"
-                    className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                    placeholder="  Write a comment..."
-                    required
-                  ></textarea>
-                </div>
+           
               </div>
-            </div>
-
 
           </form>
           <form>
-            {/* ... form fields and structure ... */}
-            {/* ... form fields and structure ... */}
-            {/* ... form fields and structure ... */}
+           
             <button onClick={handleSubmit} type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-white-700 rounded mt-8">
               Add Candidate
             </button>
