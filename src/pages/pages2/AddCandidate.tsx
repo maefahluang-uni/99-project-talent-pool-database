@@ -182,8 +182,8 @@ export function AddCandidate() {
               
 
 
-
-              <div className="w-full md:w-1/3 px-3 mb-3 md:mb-0 ">
+<div className=" flex justify-between md:w-1/2 ">
+              <div className="w-full md:w-2/6 px-3 mb-3 md:mb-0 ">
 
                 <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
                   Courtesy
@@ -199,14 +199,12 @@ export function AddCandidate() {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 px-1 mb-6 md:mb-0">
+              <div className="w-full md:w-4/6 px-3 mb-6 md:mb-0">
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                   First Name
                 </label>
                 {/* <input value={formData.name} onChange={handleChange} className="appearance-none block w-full bg-white-200 text-black-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" />  */}
                 <input
-                  placeholder="Susan"
-                  type="text"
                   id="name"
                   name="name"
                   value={formData.name}
@@ -216,7 +214,9 @@ export function AddCandidate() {
                   required
                 />
               </div>
-              <div className="w-xl md:w-1/1 px-3">
+              </div>
+              
+              <div className="w-xl md:w-1/2 px-3">
                 <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-birthday">
                   Birth Date
                 </label>
@@ -273,7 +273,7 @@ export function AddCandidate() {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-1/1 px-3 py-3 mb-6 md:mb-0">
+              <div className="w-full md:w-1/2 px-3 py-3 mb-6 md:mb-0">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-industry">
                   Industry
                 </label>

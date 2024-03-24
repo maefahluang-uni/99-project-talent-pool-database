@@ -8,11 +8,12 @@ interface User {
     id: number;
     name: string;
     email: string;
-    year: 0;
+    year: number;
 }
 
 const HomePage: React.FC = () => {
     const [datas, setData] = useState<User[]>([]);
+    const [searchTerm, setSearchTerm] = useState<string>('');
     // Mock data for candidate information (replace with actual data)
     // const candidates = [
     //     {
@@ -39,14 +40,35 @@ const HomePage: React.FC = () => {
     // ];
 
     useEffect(() => {
-        axios.get<User[]>('http://localhost:8080/users')
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        // Mock data for testing
+        const mockData: User[] = [
+            { id: 1, name: 'John Doe', email: 'john@example.com', year: 2021 },
+            { id: 2, name: 'Jane Smith', email: 'jane@example.com', year: 2022 },
+            { id: 3, name: 'Bob Johnson', email: 'bob@example.com', year: 2020 }
+
+           
+
+            // Add more mock data as needed
+        ];
+        <datalist id="suggestions">
+        <option value="Suggestion 1" />
+        <option value="Suggestion 2" />
+        <option value="Suggestion 3" />
+    
+        {/* Add more suggestions as needed */}
+      </datalist>
+        setData(mockData);
     }, []);
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredData = datas.filter(data =>
+        data.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        data.email.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    
 
     return (
         // <div className="bg-gray-100 min-h-screen">
@@ -133,10 +155,13 @@ const HomePage: React.FC = () => {
                         {/* Search Bar */}
                         <div className="mb-4 relative">
                             <input
-                                type="text"
-                                placeholder="Search Candidate"
-                                className="w-96 p-2 pr-10 border rounded border-gray-400"
-                            />
+                        type="text"
+                        placeholder="Search Candidate"
+                        className="w-96 p-2 pr-10 border rounded border-gray-400"
+                        value={searchTerm}
+                        onChange={handleSearch}
+                    />
+                    
                             <div className=" absolute inset-y-0 left-80 ml-8 flex items-center pr-3 pointer-events-none">
                                 <i className="fas fa-search text-gray-600"></i>
                             </div>
@@ -146,36 +171,36 @@ const HomePage: React.FC = () => {
                         <div className='mb-4 border border-gray-400 w-52 rounded p-2 pr-10'>
                             <h1 className='ml-2'>Found: {datas.length} candidates</h1>
                         </div>
-                        <table className='p-6 w-full bg-white rounded-xl shadow-md'>
-                            <thead>
-                                <tr>
-                                    <th className="p-2 font-normal border-b border-gray-300">
-                                        <input type="checkbox" className='cursor-pointer' />
-                                    </th>
-                                    <th className='p-2 font-normal border-b border-gray-300'>Profile</th>
-                                    <th className='p-2 font-normal border-b border-gray-300'>Candidate</th>
-                                    <th className='p-2 font-normal border-b border-gray-300'>Email</th>
-                                    {/* <th className='p-2 font-normal border-b border-gray-300'>Added by</th> */}
-                                    <th className='p-2 font-normal border-b border-gray-300'>Date Added</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {datas.map((data) => (
-                                    <tr key={data.id}>
-                                        <th className="p-2">
-                                            <input type="checkbox" className='cursor-pointer' />
-                                        </th>
-                                        <td className='p-2 flex items-center justify-center'>
-                                            <img src="../src/assets/ProfileImage.png" alt="ProfileImage.png" className='h-8' />
-                                        </td>
-                                        <td className='p-2 text-center'>{data.name}</td>
-                                        <td className='p-2 text-center'>{data.email}</td>
-                                        {/* <td className='p-2 text-center'>{data.addedBy}</td> */}
-                                        <td className='p-2 text-center'>{data.year}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                        {filteredData.length === 0 && <p className="text-center text-gray-500">No candidates found</p>}
+                <table className='p-6 w-full bg-white rounded-xl shadow-md'>
+                    <thead>
+                        <tr>
+                            <th className="p-2 font-normal border-b border-gray-300">
+                                <input type="checkbox" className='cursor-pointer' />
+                            </th>
+                            <th className='p-2 font-normal border-b border-gray-300'>Profile</th>
+                            <th className='p-2 font-normal border-b border-gray-300'>Candidate</th>
+                            <th className='p-2 font-normal border-b border-gray-300'>Email</th>
+                            <th className='p-2 font-normal border-b border-gray-300'>Date Added</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredData.map((data) => (
+                            <tr key={data.id}>
+                                <th className="p-2">
+                                    <input type="checkbox" className='cursor-pointer' />
+                                </th>
+                                <td className='p-2 flex items-center justify-center'>
+                                    <img src="../src/assets/ProfileImage.png" alt="ProfileImage.png" className='h-8' />
+                                </td>
+                                <td className='p-2 text-center'>{data.name}</td>
+                                <td className='p-2 text-center'>{data.email}</td>
+                                <td className='p-2 text-center'>{data.year}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                        
                     </div>
                 </div>
                 <br />
