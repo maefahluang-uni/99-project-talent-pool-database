@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 import axios from 'axios';
+import Header from '../components/Header';
 
 interface User {
     id: number;
@@ -12,41 +13,41 @@ interface User {
 }
 
 const HomePage: React.FC = () => {
-    const [datas, setData] = useState<User[]>([]);
+    // const [datas, setData] = useState<User[]>([]);
     // Mock data for candidate information (replace with actual data)
-    // const candidates = [
-    //     {
-    //         id: 1,
-    //         // name: 'Mr. Alan',
-    //         name: 'Alan',
-    //         position: 'Senior Developer',
-    //         // addedBy: 'Mr. Tin Win',
-    //         email: 'luna@hotmail.com',
-    //         dateAdded: '10-10-2023',
-    //         // Add other relevant fields if needed
-    //     },
-    //     {
-    //         id: 2,
-    //         // name: 'Mr. Ala',
-    //         name: 'Ala',
-    //         position: 'Developer',
-    //         // addedBy: 'Mr. Lee',
-    //         email: "alisa@gmail.com",
-    //         dateAdded: '8-12-2022',
-    //         // Add other relevant fields if needed
-    //     },
-    //     // Add more candidate entries as necessary
-    // ];
+    const candidates = [
+        {
+            id: 1,
+            // name: 'Mr. Alan',
+            name: 'Alan',
+            position: 'Senior Developer',
+            // addedBy: 'Mr. Tin Win',
+            email: 'luna@hotmail.com',
+            dateAdded: '10-10-2023',
+            // Add other relevant fields if needed
+        },
+        {
+            id: 2,
+            // name: 'Mr. Ala',
+            name: 'Ala',
+            position: 'Developer',
+            // addedBy: 'Mr. Lee',
+            email: "alisa@gmail.com",
+            dateAdded: '8-12-2022',
+            // Add other relevant fields if needed
+        },
+        // Add more candidate entries as necessary
+    ];
 
-    useEffect(() => {
-        axios.get<User[]>('http://localhost:8080/users')
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get<User[]>('http://localhost:8080/users')
+    //         .then(response => {
+    //             setData(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching data:', error);
+    //         });
+    // }, []);
 
     return (
         // <div className="bg-gray-100 min-h-screen">
@@ -54,7 +55,7 @@ const HomePage: React.FC = () => {
             {/* Header */}
             {/* <header className='bg-blue-500'> */}
             <header>
-                <div className='flex justify-between items-center'>
+                {/* <div className='flex justify-between items-center'>
                     <div className='flex items-center'>
                         <img src="../src/assets/ATALogo.png" alt="ATALogo" className='h-20' />
                         <h1 className='text-lg ml-2'>Talent Pool Database</h1>
@@ -66,7 +67,11 @@ const HomePage: React.FC = () => {
                             <i className="fas fa-bars text-gray-800 text-2xl"></i>
                         </a>
                     </div>
-                </div>
+                </div> */}
+                <Header
+                    candidateButtonClass='bg-black hover:bg-gray-600 text-white font-bold py-2 px-2 rounded border border-black'
+                    vacanciesButtonClass='hover:bg-gray-600 text-black font-bold py-2 px-2 rounded border border-black'
+                />
             </header>
             {/* Main Content */}
             {/* <main className=" bg-cyan-500 p-4"> */}
@@ -144,7 +149,8 @@ const HomePage: React.FC = () => {
 
                         {/* Found: 1 candidates */}
                         <div className='mb-4 border border-gray-400 w-52 rounded p-2 pr-10'>
-                            <h1 className='ml-2'>Found: {datas.length} candidates</h1>
+                            <h1 className='ml-2'>Found: {candidates.length} candidates</h1>
+                            {/* <h1 className='ml-2'>Found: {datas.length} candidates</h1> */}
                         </div>
                         <table className='p-6 w-full bg-white rounded-xl shadow-md'>
                             <thead>
@@ -160,7 +166,8 @@ const HomePage: React.FC = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {datas.map((data) => (
+                                {candidates.map((data) => (
+                                // {datas.map((data) => (
                                     <tr key={data.id}>
                                         <th className="p-2">
                                             <input type="checkbox" className='cursor-pointer' />
@@ -170,8 +177,8 @@ const HomePage: React.FC = () => {
                                         </td>
                                         <td className='p-2 text-center'>{data.name}</td>
                                         <td className='p-2 text-center'>{data.email}</td>
-                                        {/* <td className='p-2 text-center'>{data.addedBy}</td> */}
-                                        <td className='p-2 text-center'>{data.year}</td>
+                                        <td className='p-2 text-center'>{data.dateAdded}</td>
+                                        {/* <td className='p-2 text-center'>{data.year}</td> */}
                                     </tr>
                                 ))}
                             </tbody>

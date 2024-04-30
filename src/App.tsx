@@ -8,6 +8,9 @@ import HomePage from "./pages/HomePage";
 import AddCandidate from "./pages/pages2/AddCandidate";
 import { Route, Router, Switch } from "wouter";
 import TestingAddCandidate from "./pages/pages2/TestingAddCandidate";
+import VacancyPage from "./pages/vacancy/VacancyPage";
+import AddVacancies from "./pages/vacancy/AddVacancies";
+import RecommendedCandidates from "./pages/vacancy/RecommendedCandidates";
 
 const App: React.FC = () => {
     return (
@@ -22,6 +25,9 @@ const App: React.FC = () => {
                     <Route path="/testingAddCandidate" component={TestingAddCandidate} />
                     <Route path="/addCandidate" component={AddCandidate} />
                 {/* </div> */}
+                <Route path="/VacancyPage" component={VacancyPage} />
+                <Route path="/AddVacancies" component={AddVacancies} />
+                <Route path="/RecommendedCandidates" component={RecommendedCandidates} />
             </Switch>
         </Router>
     );
