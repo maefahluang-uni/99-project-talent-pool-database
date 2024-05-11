@@ -13,31 +13,39 @@ import AddVacancies from "./pages/vacancy/AddVacancies";
 import RecommendedCandidates from "./pages/vacancy/RecommendedCandidates";
 
 const App: React.FC = () => {
-    return (
-        <Router>
-            <Switch>
-                <Route path="/" component={HomePage} />
-                <Route path="/login" component={Login} />
-                <Route path="/signup" component={SignUp} />
-                <Route path="/forgotPassword" component={ForgotPassword} />
-                <Route path="/homepage" component={HomePage} />
-                {/* <div className="min-h-screen bg-gray-100 flex items-center justify-center"> */}
-                    <Route path="/testingAddCandidate" component={TestingAddCandidate} />
-                    <Route path="/addCandidate" component={AddCandidate} />
-                {/* </div> */}
-                <Route path="/VacancyPage" component={VacancyPage} />
-                <Route path="/AddVacancies" component={AddVacancies} />
-                <Route path="/RecommendedCandidates" component={RecommendedCandidates} />
-            </Switch>
-        </Router>
-    );
+  return (
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/" component={HomePage} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/forgotPassword" component={ForgotPassword} />
+        <Route path="/homepage" component={HomePage} />
+        {/* <div className="min-h-screen bg-gray-100 flex items-center justify-center"> */}
+        <Route path="/testingAddCandidate" component={TestingAddCandidate} />
+        <Route path="/addCandidate" component={AddCandidate} />
+        {/* </div> */}
+        <Route path="/VacancyPage" component={VacancyPage} />
+        <Route path="/AddVacancies" component={AddVacancies} />
+        <Route
+          path="/RecommendedCandidates"
+          component={RecommendedCandidates}
+        />
+      </Switch>
+    </Router>
+  );
 };
 
 export default App;
 
-{/* <div className="absolute inset-y-0 right-80 flex items-center pr-3 pointer-events-none"></div> */ }
-{/* <div className="p-6 max-w-xs bg-white rounded-xl shadow-md"> */ }
-{/* <table className="w-full border-collapse border">
+{
+  /* <div className="absolute inset-y-0 right-80 flex items-center pr-3 pointer-events-none"></div> */
+}
+{
+  /* <div className="p-6 max-w-xs bg-white rounded-xl shadow-md"> */
+}
+{
+  /* <table className="w-full border-collapse border">
                     <thead>
                         <tr className="bg-gray-200">
                             <th className="p-2">Profile</th>
@@ -62,8 +70,8 @@ export default App;
                             </tr>
                         ))}
                     </tbody>
-                </table> */}
-
+                </table> */
+}
 
 // import React, { useState } from 'react';
 
@@ -114,8 +122,11 @@ export default App;
 
 // export default CandidateForm;
 
-{/* <header className="bg-blue-500 text-white p-4"> */ }
-{/* <header className=" text-black p-1">
+{
+  /* <header className="bg-blue-500 text-white p-4"> */
+}
+{
+  /* <header className=" text-black p-1">
                 <div className="flex items-center">
                     <img src="../src/assets/ATALogo.png" alt="Logo" className="h-20" />
                     <h1 className="text-xl">Talent Pool Database</h1>
@@ -132,9 +143,11 @@ export default App;
                     </div>
 
                 </div>
-            </header> */}
+            </header> */
+}
 
-{/* <header className="text-black p-1">
+{
+  /* <header className="text-black p-1">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
                         <img src="../src/assets/ATALogo.png" alt="Logo" className="h-20" />
@@ -152,8 +165,8 @@ export default App;
                         </div>
                     </div>
                 </div>
-            </header> */}
-
+            </header> */
+}
 
 // import React from "react";
 // import './App.css';
@@ -205,8 +218,6 @@ export default App;
 
 // export default App;
 
-
-
 // import React from "react";
 // // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import './App.css';
@@ -242,4 +253,3 @@ export default App;
 // };
 
 // export default App;
-
